@@ -1,0 +1,225 @@
+export interface ScheduleItem {
+  id: string;
+  dayNumber: 1 | 2 | 3;
+  dayTitle: string;
+  dayDate: string; // "Oct 29", "Oct 30", "Oct 31"
+  dateISO: string; // ISO date for calendar sync & live calculation
+  time: string; // "09:00"
+  endTime?: string;
+  title: string;
+  venue: string;
+  venueKey: string;
+  badge: "WELCOME" | "MAIN STAGE" | "COMPETE" | "ARENA" | "CAMPUS-WIDE" | "SESSION" | "LIVE" | "FINAL" | "CELEBRATE";
+  description: string;
+  eventSlug?: string;
+}
+
+export interface DaySchedule {
+  dayNumber: 1 | 2 | 3;
+  themeTitle: string; // "THE AWAKENING", "THE CHASE", "THE RECKONING"
+  dateFormatted: string; // "OCT 29", "OCT 30", "OCT 31"
+  dateFull: string; // "October 29, 2026"
+  items: ScheduleItem[];
+}
+
+export const scheduleData: DaySchedule[] = [
+  {
+    dayNumber: 1,
+    themeTitle: "THE AWAKENING",
+    dateFormatted: "OCT 29",
+    dateFull: "October 29, 2026",
+    items: [
+      {
+        id: "d1-01",
+        dayNumber: 1,
+        dayTitle: "THE AWAKENING",
+        dayDate: "Oct 29",
+        dateISO: "2026-10-29T09:00:00+05:30",
+        time: "09:00",
+        endTime: "10:30",
+        title: "Portal Opens + Registration",
+        venue: "Central Lawn",
+        venueKey: "central-lawn",
+        badge: "WELCOME",
+        description: "Official check-in, fest kit distribution, badge issuance, and portal initiation ceremony.",
+      },
+      {
+        id: "d1-02",
+        dayNumber: 1,
+        dayTitle: "THE AWAKENING",
+        dayDate: "Oct 29",
+        dateISO: "2026-10-29T10:30:00+05:30",
+        time: "10:30",
+        endTime: "11:45",
+        title: "Opening Ceremony",
+        venue: "Tagore Hall",
+        venueKey: "tagore-hall",
+        badge: "MAIN STAGE",
+        description: "Keynote addresses, lighting of the ceremonial lantern, unveiling of the Tachyon 2026 trophy.",
+      },
+      {
+        id: "d1-03",
+        dayNumber: 1,
+        dayTitle: "THE AWAKENING",
+        dayDate: "Oct 29",
+        dateISO: "2026-10-29T12:00:00+05:30",
+        time: "12:00",
+        endTime: "14:30",
+        title: "Code Mania: Qualifier",
+        venue: "CSE Lab 01",
+        venueKey: "cse-lab-01",
+        badge: "COMPETE",
+        description: "High-speed algorithmic contest rounds to determine the elite finalists.",
+        eventSlug: "code-mania",
+      },
+      {
+        id: "d1-04",
+        dayNumber: 1,
+        dayTitle: "THE AWAKENING",
+        dayDate: "Oct 29",
+        dateISO: "2026-10-29T15:30:00+05:30",
+        time: "15:30",
+        endTime: "18:00",
+        title: "Robo Wars: Tech Inspection",
+        venue: "Arena Zero",
+        venueKey: "arena-zero",
+        badge: "ARENA",
+        description: "Mandatory robot weight check, weapon safety validation, and failsafe radio inspection.",
+        eventSlug: "robo-wars",
+      },
+    ],
+  },
+  {
+    dayNumber: 2,
+    themeTitle: "THE CHASE",
+    dateFormatted: "OCT 30",
+    dateFull: "October 30, 2026",
+    items: [
+      {
+        id: "d2-01",
+        dayNumber: 2,
+        dayTitle: "THE CHASE",
+        dayDate: "Oct 30",
+        dateISO: "2026-10-30T09:30:00+05:30",
+        time: "09:30",
+        endTime: "13:00",
+        title: "Cryptic Hunt: The First Clue",
+        venue: "Tachyon World",
+        venueKey: "tachyon-world",
+        badge: "CAMPUS-WIDE",
+        description: "The cipher broadcast initiates across campus. Teams solve riddles and hunt physical caches.",
+        eventSlug: "cryptic-hunt",
+      },
+      {
+        id: "d2-02",
+        dayNumber: 2,
+        dayTitle: "THE CHASE",
+        dayDate: "Oct 30",
+        dateISO: "2026-10-30T11:00:00+05:30",
+        time: "11:00",
+        endTime: "12:30",
+        title: "Guest Session: Building What Matters",
+        venue: "Tagore Hall",
+        venueKey: "tagore-hall",
+        badge: "SESSION",
+        description: "An inspiring masterclass by prominent industry engineering leaders and founders.",
+      },
+      {
+        id: "d2-03",
+        dayNumber: 2,
+        dayTitle: "THE CHASE",
+        dayDate: "Oct 30",
+        dateISO: "2026-10-30T14:00:00+05:30",
+        time: "14:00",
+        endTime: "17:00",
+        title: "War for Trezor: Strategy Rounds",
+        venue: "Management Block",
+        venueKey: "management-block",
+        badge: "COMPETE",
+        description: "Corporate warfare, tactical asset bidding, and market volatility crisis simulations.",
+        eventSlug: "war-for-trezor",
+      },
+      {
+        id: "d2-04",
+        dayNumber: 2,
+        dayTitle: "THE CHASE",
+        dayDate: "Oct 30",
+        dateISO: "2026-10-30T18:00:00+05:30",
+        time: "18:00",
+        endTime: "21:30",
+        title: "Glitch E-Sports: Knockouts",
+        venue: "E-Sports Crypt",
+        venueKey: "esports-crypt",
+        badge: "LIVE",
+        description: "High-octane tournament brackets under atmospheric stage lights with live commentary.",
+        eventSlug: "glitch-esports",
+      },
+    ],
+  },
+  {
+    dayNumber: 3,
+    themeTitle: "THE RECKONING",
+    dateFormatted: "OCT 31",
+    dateFull: "October 31, 2026",
+    items: [
+      {
+        id: "d3-01",
+        dayNumber: 3,
+        dayTitle: "THE RECKONING",
+        dayDate: "Oct 31",
+        dateISO: "2026-10-31T10:00:00+05:30",
+        time: "10:00",
+        endTime: "12:30",
+        title: "Code Mania: Grand Finale",
+        venue: "CSE Lab 01",
+        venueKey: "cse-lab-01",
+        badge: "FINAL",
+        description: "The top bracket programmers battle live on the main display boards.",
+        eventSlug: "code-mania",
+      },
+      {
+        id: "d3-02",
+        dayNumber: 3,
+        dayTitle: "THE RECKONING",
+        dayDate: "Oct 31",
+        dateISO: "2026-10-31T13:00:00+05:30",
+        time: "13:00",
+        endTime: "16:00",
+        title: "Robo Wars: Final Collision",
+        venue: "Arena Zero",
+        venueKey: "arena-zero",
+        badge: "ARENA",
+        description: "Championship deathmatches in the caged arena until the supreme champion emerges.",
+        eventSlug: "robo-wars",
+      },
+      {
+        id: "d3-03",
+        dayNumber: 3,
+        dayTitle: "THE RECKONING",
+        dayDate: "Oct 31",
+        dateISO: "2026-10-31T16:30:00+05:30",
+        time: "16:30",
+        endTime: "18:30",
+        title: "Awards + Closing Ritual",
+        venue: "Tagore Hall",
+        venueKey: "tagore-hall",
+        badge: "MAIN STAGE",
+        description: "Trophy presentations, felicitations, cash prize checks, and the ritual fire send-off.",
+      },
+      {
+        id: "d3-04",
+        dayNumber: 3,
+        dayTitle: "THE RECKONING",
+        dayDate: "Oct 31",
+        dateISO: "2026-10-31T19:00:00+05:30",
+        time: "19:00",
+        endTime: "22:00",
+        title: "The Afterdark Social",
+        venue: "Central Lawn",
+        venueKey: "central-lawn",
+        badge: "CELEBRATE",
+        description: "Music, lantern lights, food stalls, networking, and celebration under the Halloween stars.",
+      },
+    ],
+  },
+];

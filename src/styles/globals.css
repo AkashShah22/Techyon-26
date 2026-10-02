@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-dark: #1a0610;
+  --color-darker: #0d0208;
+  --color-maroon: #280a1a;
+  --color-orange: #ff6a13;
+  --color-cream: #fdeccd;
+  --color-cream-light: #fff6e5;
+  --color-teal: #19c3a4;
+  --color-text-light: #fefaf6;
+  --color-text-dark: #1a0610;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-dark);
+  color: var(--color-text-light);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #1a0610;
+  color: #fefaf6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Accessibility: visible keyboard focus states */
+*:focus-visible {
+  outline: 2px solid #ff6a13;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0208;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff6a13;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff8238;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: #ff6a13;
+  color: #0d0208;
+}
+
+/* Spooky typography classes */
+.font-display {
+  font-family: var(--font-anton), Impact, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.font-body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-space-mono), monospace;
+}
+
+/* Text glow utilities */
+.glow-orange {
+  text-shadow: 0 0 12px rgba(255, 106, 19, 0.65), 0 0 24px rgba(255, 106, 19, 0.35);
+}
+
+.glow-teal {
+  text-shadow: 0 0 12px rgba(25, 195, 164, 0.65), 0 0 24px rgba(25, 195, 164, 0.35);
+}
+
+.glow-box-orange {
+  box-shadow: 0 0 20px rgba(255, 106, 19, 0.4);
+}
+
+.glow-box-teal {
+  box-shadow: 0 0 20px rgba(25, 195, 164, 0.4);
+}
+
+/* Fog animation background */
+.fog-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 106, 19, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  animation: drift 25s linear infinite;
+}
+
+/* Cursor lantern overlay */
+.lantern-cursor-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: soft-light;
+}
+
+/* Classic view overrides */
+.classic-view .lantern-cursor-overlay,
+.classic-view .fog-layer,
+.classic-view .bat-swarm,
+.classic-view .soul-collectible {
+  display: none !important;
+}
+
+.classic-view * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* Prefers-reduced-motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .lantern-cursor-overlay,
+  .fog-layer {
+    display: none !important;
+  }
+}
